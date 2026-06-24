@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Deep Navy & Teal Corporate Theme */
+    --background: 220 30% 98%;
+    --foreground: 220 30% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 30% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 30% 10%;
+
+    --primary: 220 80% 35%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 175 60% 40%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 220 20% 94%;
+    --muted-foreground: 220 15% 45%;
+
+    --accent: 175 60% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 70% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 10%;
+
+    --border: 220 20% 88%;
+    --input: 220 20% 88%;
+    --ring: 220 80% 35%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 220 30% 10%;
+    --sidebar-foreground: 220 20% 90%;
+    --sidebar-primary: 175 60% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 25% 18%;
+    --sidebar-accent-foreground: 220 20% 90%;
+    --sidebar-border: 220 25% 20%;
+    --sidebar-ring: 175 60% 45%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(220 80% 35%) 0%, hsl(175 60% 40%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(220 30% 10%) 0%, hsl(220 35% 18%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(220 30% 98%) 100%);
+    --gradient-success: linear-gradient(135deg, hsl(142 70% 45%) 0%, hsl(160 60% 50%) 100%);
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(220 30% 10% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(220 30% 10% / 0.1), 0 2px 4px -2px hsl(220 30% 10% / 0.1);
+    --shadow-lg: 0 10px 15px -3px hsl(220 30% 10% / 0.1), 0 4px 6px -4px hsl(220 30% 10% / 0.1);
+    --shadow-xl: 0 20px 25px -5px hsl(220 30% 10% / 0.15), 0 8px 10px -6px hsl(220 30% 10% / 0.1);
+    --shadow-glow: 0 0 30px hsl(175 60% 45% / 0.2);
+  }
+
+  .dark {
+    --background: 220 30% 8%;
+    --foreground: 220 20% 95%;
+
+    --card: 220 30% 12%;
+    --card-foreground: 220 20% 95%;
+
+    --popover: 220 30% 12%;
+    --popover-foreground: 220 20% 95%;
+
+    --primary: 175 60% 50%;
+    --primary-foreground: 220 30% 10%;
+
+    --secondary: 220 50% 50%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 220 25% 18%;
+    --muted-foreground: 220 15% 60%;
+
+    --accent: 175 60% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 70% 50%;
+    --success-foreground: 0 0% 10%;
+
+    --warning: 38 92% 55%;
+    --warning-foreground: 0 0% 10%;
+
+    --border: 220 25% 20%;
+    --input: 220 25% 20%;
+    --ring: 175 60% 50%;
+
+    --sidebar-background: 220 30% 6%;
+    --sidebar-foreground: 220 20% 90%;
+    --sidebar-primary: 175 60% 50%;
+    --sidebar-primary-foreground: 220 30% 10%;
+    --sidebar-accent: 220 25% 15%;
+    --sidebar-accent-foreground: 220 20% 90%;
+    --sidebar-border: 220 25% 15%;
+    --sidebar-ring: 175 60% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+}
+
+#lovable-badge {
+  display: none !important;
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-sm border border-border/50 shadow-lg;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-primary);
+  }
+
+  .camera-feed {
+    @apply relative rounded-xl overflow-hidden shadow-xl border-2 border-primary/20;
+  }
+
+  .pulse-ring {
+    animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes pulse-ring {
+    0%, 100% {
+      box-shadow: 0 0 0 0 hsl(175 60% 45% / 0.4);
+    }
+    50% {
+      box-shadow: 0 0 0 15px hsl(175 60% 45% / 0);
+    }
+  }
+
+  .face-detected {
+    animation: face-detected 0.5s ease-out;
+  }
+
+  @keyframes face-detected {
+    0% {
+      transform: scale(0.95);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.02);
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+}
